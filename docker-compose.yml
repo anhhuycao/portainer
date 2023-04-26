@@ -10,3 +10,13 @@ services:
     volumes:
       - ./data:/data
       - /var/run/docker.sock:/var/run/docker.sock
+
+  nexus:
+    image: sonatype/nexus3:3.52.0
+    container_name: nexus
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:8081:8081
+      - 127.0.0.1:8085:8085
+    volumes:
+      - ./nexus:/nexus-data
